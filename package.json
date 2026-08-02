@@ -1,12 +1,13 @@
 {
   "name": "social_media_platform",
   "version": "1.0.0",
-  "description": "training data modelling on postgresql",
+  "description": "Public practice lab: PostgreSQL data modelling for a social platform (Product Engineer sprints)",
   "keywords": [
-    "data-modelling",
     "postgresql",
-    "software",
-    "engineer"
+    "data-modelling",
+    "system-design",
+    "nodejs",
+    "learning-in-public"
   ],
   "homepage": "https://github.com/Neander-Menezes/social-media-modelling#readme",
   "bugs": {

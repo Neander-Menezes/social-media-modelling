@@ -1,14 +1,42 @@
 # Social Media Modelling
 
-Lab notebook for ramping to mid–senior eng: PostgreSQL data modelling for a social platform, one ~1h Product Engineer sprint at a time.
+**Public practice lab:** system-design-grade PostgreSQL modelling for a social platform — shipped in short Product Engineer sprints, with the decisions written down.
 
-Clone it, run it, steal the process — or just skim the journal.
+Built by [Neander Menezes](https://github.com/Neander-Menezes) while leveling judgment on data modelling, consistency tradeoffs, and AI-assisted delivery.
 
-| | |
-|---|---|
-| **Curriculum** | [Hello Interview — PostgreSQL](https://www.hellointerview.com/learn/system-design/deep-dives/postgres) |
-| **Now** | Bootstrap shipped · modelling next |
-| **Process** | Done criteria → challenge → settle → ship → retro |
+| Signal | Detail |
+|--------|--------|
+| **Focus** | PostgreSQL · data modelling · system design · Node/Express |
+| **Method** | ~1h sprints · done criteria first · challenge → settle → ship · public retros |
+| **Curriculum** | [Hello Interview — PostgreSQL deep dive](https://www.hellointerview.com/learn/system-design/deep-dives/postgres) |
+| **Status** | ✅ Bootstrap API + DB · 🔜 social graph schema (posts, comments, follows, likes, DMs) |
+
+> Not a demo CRUD app. A **decision journal with runnable code** — useful if you’re hiring for how someone thinks, or if you’re an engineer who learns by reading tradeoffs.
+
+---
+
+## For recruiters (60 seconds)
+
+- **What it shows:** intentional practice on interview-relevant Postgres design (relationships, integrity, readiness, migrations), not tutorial copy-paste.
+- **How work gets done:** Product + engineering in the same loop — scope, tradeoffs, ship, retro.
+- **What’s documented:** each sprint’s product calls, engineering calls, lessons, and AI usage patterns (see Journal / `docs/`).
+- **Stack today:** Docker Compose · PostgreSQL 16 · Node.js · Express · versioned SQL migrations.
+
+Deep dives live in collapsible journal entries and [`docs/sprints/`](docs/sprints/).
+
+---
+
+## For engineers who peek
+
+Expect:
+
+- Named-volume persistence done correctly (`down` vs `down -v`)
+- Startup readiness: TCP → SQL with backoff (port-open ≠ ready)
+- Tiny migrator + `schema_migrations` as DDL source of truth
+- `/health` as liveness only (no credential leakage)
+- `/schemas` introspection + mock LLM table descriptions (API shape reserved for a real provider later)
+
+Steal the process skill: [`.cursor/skills/product-engineer-sprint/`](.cursor/skills/product-engineer-sprint/SKILL.md).
 
 ---
 
@@ -22,14 +50,14 @@ make down    # keep data
 make reset   # wipe data
 ```
 
-Needs Docker + Make. Defaults in `.env.example`.
+Docker + Make. Defaults in `.env.example`.
 
 ---
 
 ## Journal
 
 <details>
-<summary><strong>2026-08-02 — Sprint 001: Bootstrap</strong> · pipe + tiny <code>users</code> table</summary>
+<summary><strong>2026-08-02 — Sprint 001: Bootstrap</strong> · runnable pipe + <code>users</code></summary>
 
 <br>
 
@@ -57,12 +85,12 @@ Needs Docker + Make. Defaults in `.env.example`.
 
 </details>
 
-<!-- New entries: copy a <details> block above; newest on top. -->
+<!-- Newest journal entry on top. -->
 
 ---
 
 <details>
-<summary><strong>How we work</strong> · steal the sprint loop</summary>
+<summary><strong>How sprints work</strong></summary>
 
 <br>
 
@@ -70,29 +98,14 @@ Needs Docker + Make. Defaults in `.env.example`.
 2. Challenge assumptions that would cause rework.
 3. Options + tradeoffs on real forks.
 4. Time-box settle → implement.
-5. Retro: product + eng + AI patterns → `docs/sprints/`, promote reuse to `docs/knowledge/`.
+5. Retro: product + eng + AI → `docs/sprints/`; lasting lessons → `docs/knowledge/`.
 
-**Good progress:** criteria proven with evidence · ≥1 assumption tested · deferrals listed · docs updated.
-
-</details>
-
-<details>
-<summary><strong>Who this is for</strong></summary>
-
-<br>
-
-| You | Do this |
-|-----|---------|
-| Me | Deliberate PE sprints with AI as mentor/partner. |
-| Ramping the same way | Redo the thinking; don’t paste the schema. |
-| Curious | Skim journal + process; code optional. |
-
-Domain from the article (users, posts, comments, follows, likes, DMs) — built **incrementally**, not big-bang.
+**Bar for “shipped”:** criteria proven with evidence · ≥1 assumption tested · deferrals listed · docs updated.
 
 </details>
 
 <details>
-<summary><strong>Layout</strong></summary>
+<summary><strong>Repo layout</strong></summary>
 
 <br>
 
