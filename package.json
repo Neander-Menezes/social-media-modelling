@@ -1,0 +1,31 @@
+{
+  "name": "social_media_platform",
+  "version": "1.0.0",
+  "description": "training data modelling on postgresql",
+  "keywords": [
+    "data-modelling",
+    "postgresql",
+    "software",
+    "engineer"
+  ],
+  "homepage": "https://github.com/Neander-Menezes/social-media-modelling#readme",
+  "bugs": {
+    "url": "https://github.com/Neander-Menezes/social-media-modelling/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Neander-Menezes/social-media-modelling.git"
+  },
+  "license": "ISC",
+  "author": "Neander Menezes",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "pg": "^8.16.3"
+  }
+}
